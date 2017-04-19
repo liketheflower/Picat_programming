@@ -1,0 +1,4 @@
+module q_sort.
+sort([]) = [].
+sort([H|T]) =
+sort([E : E in T, E=<H])++[H]++sort([E : E in T, E>H]).
