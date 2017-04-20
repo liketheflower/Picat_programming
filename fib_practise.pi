@@ -1,0 +1,20 @@
+import util.
+import cp.
+
+table
+fib(1)=1.
+fib(2)=1.
+fib(N)=fib(N-1)+fib(N-2).
+
+
+table
+coins2(Target) =>
+Combs = find_all(Comb,comb([1,5,10,25],Target,Comb)),
+println(Combs.len).
+
+comb(_Coins,0,Comb) => Comb = [].
+comb([Coin|Coins],Target,Comb) =>
+Comb = [(Coin,N)|Comb1],
+between(0,Target//Coin,N),
+comb(Coins,Target-N*Coin,Comb1).
+
