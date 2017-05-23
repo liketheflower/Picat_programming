@@ -1,0 +1,31 @@
+import cp.
+sudoku =>
+    instance(N,A),
+    A :: 1..N,
+    foreach(Row in 1..N)
+        all_different(A[Row])
+    end,
+    foreach(Col in 1..N)
+        all_different([A[Row,Col] : Row in 1..N])
+    end,
+    M=floor(sqrt(N)),
+    foreach(Row in 1..M, Col in 1..M)
+        Square = [A[Row1,Col1] :
+        Row1 in (Row-1)*M+1..Row*M,
+        Col1 in (Col-1)*M+1..Col*M],
+        all_different(Square)
+    end,
+    solve(A),
+    foreach(I in 1..N) writeln(A[I]) end.
+instance(N,A) =>
+    N=9,
+    A={{5,3,_,_,7,_,_,_,_},
+       {6,_,_,1,9,5,_,_,_},
+       {_,9,8,_,_,_,_,6,_},
+       {8,_,_,_,6,_,_,_,3},
+       {4,_,_,8,_,3,_,_,1},
+       {7,_,_,_,2,_,_,_,6},
+       {_,_,_,_,_,_,_,_,_},
+       {_,_,_,_,_,_,_,_,_},
+       {_,_,_,_,_,_,_,_,_},
+       {_,_,_,_,_,_,_,_,_}}.
